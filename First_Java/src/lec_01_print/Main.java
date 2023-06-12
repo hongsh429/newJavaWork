@@ -1,3 +1,5 @@
+package lec_01_print;
+
 
 // 클래스
 // public : (접근)제어자, public(공공의, 공통의)
@@ -48,23 +50,4 @@ public class Main {
         System.out.println("JAVA");
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
