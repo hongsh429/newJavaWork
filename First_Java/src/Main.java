@@ -1,3 +1,6 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 // 클래스
 // public : (접근)제어자, public(공공의, 공통의)
@@ -9,8 +12,6 @@ public class Main {
     // class loader
     // (2) JRE
     // (3) JDB : 디버깅
-
-
 
 
     // 메인 메소드
@@ -27,25 +28,67 @@ public class Main {
     // String[] args : 매개변수자리
     public static void main(String[] args) {
 
-        // 객체 : 특징(속성, 변수), 행동(메소드)
-        // 클래스.static 객체.메소드
-        System.out.println("hello, java");
+    }
 
-        // print : 줄바꿈 x
-        // println : 줄바꿈 o / ln = line
-        System.out.print("Our First ");
-        System.out.println("Project! :)");
-        System.out.println("다음줄");
+    public static String solution2(int a, int b) {
+        String[] week = {"MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"};
+        LocalDate localDate = LocalDate.of(2016, a, b);
+        String day = localDate.format(DateTimeFormatter.ISO_WEEK_DATE);
+        int weekNum = Integer.parseInt(day.substring(day.length()-1));
+        return week[weekNum-1];
+    }
 
-        // 과제
-        // 1. 7
-        // 2. 3
-        // 3. 3.14
-        // 4. JAVA
-        System.out.println(7);
-        System.out.println(3);
-        System.out.println(3.14);
-        System.out.println("JAVA");
+    public String solution(int a, int b) {
+        String answer = "";
+
+        int prev_day_sum = 0;
+
+        String[] YO = {"FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"};
+        int yo_cnt = 0;
+
+        int x = 1;
+        int y = 1;
+
+        while (x != a || y != b) {
+
+            if (yo_cnt + 1 <= 6) {
+                yo_cnt += 1;
+            } else {
+                yo_cnt = 0;
+            }
+
+
+            if (x == 1 || x == 3 || x == 5 || x == 7 || x == 8 || x == 10 || x == 12) {
+                if (y < 31) {
+                    y++;
+                } else {
+                    x++;
+                    y = 1;
+                }
+
+            } else if (x == 4 || x == 6 || x == 11 || x == 9 || x == 11) {
+                if (y < 30) {
+                    y++;
+                } else {
+                    x++;
+                    y = 1;
+                }
+
+            } else {
+                if (y < 29) {
+                    y++;
+                } else {
+                    x++;
+                    y = 1;
+                }
+            }
+
+
+        }
+
+        answer = YO[yo_cnt];
+
+        return answer;
     }
 }
 

@@ -1,0 +1,38 @@
+package week03;
+
+public class InterfaceMain extends D implements C {
+
+    @Override
+    public void a() {
+        System.out.println("A");
+    }
+
+    @Override
+    public void b() {
+        System.out.println("B");
+    }
+
+    public static void main(String[] args) {
+        InterfaceMain main = new InterfaceMain();
+        main.a();
+        main.b();
+        main.d();
+    }
+}
+
+interface A {
+    void a();
+}
+
+interface B {
+    void b();
+}
+
+interface C extends A, B {
+}
+
+class D {
+    void d() {
+        System.out.println("D");
+    }
+}

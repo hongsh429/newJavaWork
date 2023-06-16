@@ -8,9 +8,11 @@ public class TeamWork {
         Scanner sc = new Scanner(System.in);
 
         // 서로 다른 3개의 숫자를 기억하는 것만들기
-        Set<Integer> set = new HashSet<>();
+        Set<Integer> set = new HashSet<>(); // 중복을 허용 안함. 순서를 중요하게 생각 x
         while (true) {
-            if(set.size() == 3) break;
+            if(set.size() == 3){
+                break;
+            }
             set.add((int) (Math.random() * 10));
         }
         List<Integer> list = new ArrayList<>(set);
@@ -24,6 +26,7 @@ public class TeamWork {
         String input;
         while (true) {
 
+            // 종료 조건
             if(strike == 3) {
                 System.out.printf("%d번 만에 맞히셨습니다\n", count);
                 System.out.println("게임을 종료합니다.");
